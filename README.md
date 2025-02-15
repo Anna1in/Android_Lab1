@@ -29,6 +29,16 @@
                 textViewResult.setText(resultText); 
                 } 
 
+При натисканні кнопки "Cancel", всі дані, які були у текстовому полі знизу прибираються, а також обрані RadioButton зникають. 
+ У коді це знаходиться у методі :"buttonCancel.setOnClickListener" , а саме -
+
+    buttonCancel.setOnClickListener(v -> {
+            textViewResult.setText("");
+            radioGroupCompany.clearCheck();
+            radioGroupProduct.clearCheck();
+        });
+
+        
 Висновок: Програма за варіантом 9, в якій є групи "Продукт" та "Бренд", обираючи які і натискаючи на кнопку "ОК"- вони виводяться у окреме поле. Також передбачено вивід повідомлення, коли обрано тільки бренд, або тільки продукт. Програма реалізована на Android Studio. На мові програмування Java. За допомогою Button, RadioButton, RadioGroup, Textview та відповідних методів для натискання кнопок. 
 
   
