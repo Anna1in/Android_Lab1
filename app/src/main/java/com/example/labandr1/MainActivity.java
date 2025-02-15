@@ -27,31 +27,28 @@ public class MainActivity extends AppCompatActivity {
         textViewResult = findViewById(R.id.textView3);
 
         //Дія, яку виконує кнопка "ОК"
-        buttonOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int selectedCompanyId = radioGroupCompany.getCheckedRadioButtonId();
-                int selectedProductId = radioGroupProduct.getCheckedRadioButtonId();
+        buttonOk.setOnClickListener(v -> {
+            int selectedCompanyId = radioGroupCompany.getCheckedRadioButtonId();
+            int selectedProductId = radioGroupProduct.getCheckedRadioButtonId();
 
-                if (selectedCompanyId == -1 || selectedProductId == -1) {
-                    Toast.makeText(MainActivity.this, "Please select both a company and a product.", Toast.LENGTH_SHORT).show();
-                } else {
-                    RadioButton selectedCompany = findViewById(selectedCompanyId);
-                    RadioButton selectedProduct = findViewById(selectedProductId);
-                    String resultText = "Обрана компанія: " + selectedCompany.getText().toString() + "\nSОбраний продукт: " + selectedProduct.getText().toString();
-                    textViewResult.setText(resultText);
-                }
+            if (selectedCompanyId == -1 || selectedProductId == -1) {
+                Toast.makeText(MainActivity.this, "Please select both a company and a product.", Toast.LENGTH_SHORT).show();
+            } else {
+                RadioButton selectedCompany = findViewById(selectedCompanyId);
+                RadioButton selectedProduct = findViewById(selectedProductId);
+                String resultText = "Обрана компанія: " + selectedCompany.getText().toString() +
+                        "\nОбраний продукт: " + selectedProduct.getText().toString();
+                textViewResult.setText(resultText);
             }
         });
+
 
         //Дія, яку виконує кнопка "Cancel"
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textViewResult.setText("");
-                radioGroupCompany.clearCheck();
-                radioGroupProduct.clearCheck();
-            }
+        buttonCancel.setOnClickListener(v -> {
+            textViewResult.setText("");
+            radioGroupCompany.clearCheck();
+            radioGroupProduct.clearCheck();
         });
+
     }
 }
